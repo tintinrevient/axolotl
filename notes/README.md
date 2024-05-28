@@ -1,12 +1,26 @@
 # Notes
 
+## Getting started
+
+This is the only example that can run on my Ubuntu with CPU only: https://github.com/tintinrevient/axolotl/tree/main/examples/tiny-llama.
+
+You can simly run it as below:
+
+```
+accelerate launch -m axolotl.cli.train examples/tiny-llama/lora.yml
+```
+
 ## Issues
 
-* Issue 1 on MacOS M2: [MPSNDArray error: product of dimension sizes > 2**31](https://github.com/pytorch/pytorch/issues/84039)。
+### issue 1 on MacOS M2: [MPSNDArray error: product of dimension sizes > 2**31](https://github.com/pytorch/pytorch/issues/84039)。
 
 So I ditched `Metal` and go to `RTX 2060`.
 
-* Issue 2 on GPU: [CUDA out of memory](https://github.com/OpenAccess-AI-Collective/axolotl/issues/998)。
+### issue 2 on GPU: `RuntimeError: FlashAttention only supports Ampere GPUs or newer.`
 
-So I only use CPU by setting `export CUDA_VISIBLE_DEVICES=""`.
+Then I turned off flash attention by setting `flash_attention: false`.
+
+### issue 3 on GPU: [CUDA out of memory](https://github.com/OpenAccess-AI-Collective/axolotl/issues/998)。
+
+Uggh I can only use CPU by setting `export CUDA_VISIBLE_DEVICES=""`.
 
