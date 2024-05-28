@@ -1,8 +1,8 @@
-base_model: TinyLlama/TinyLlama-1.1B-intermediate-step-1431k-3T
+base_model: TinyLlama/TinyLlama-1.1B-intermediate-step-240k-503b
 model_type: LlamaForCausalLM
 tokenizer_type: LlamaTokenizer
 
-load_in_8bit: true
+load_in_8bit: false
 load_in_4bit: false
 strict: false
 
@@ -33,7 +33,7 @@ wandb_name:
 wandb_log_model:
 
 gradient_accumulation_steps: 4
-micro_batch_size: 2
+micro_batch_size: 1
 num_epochs: 4
 optimizer: adamw_bnb_8bit
 lr_scheduler: cosine
@@ -41,8 +41,8 @@ learning_rate: 0.0002
 
 train_on_inputs: false
 group_by_length: false
-bf16: auto
-fp16:
+bf16: false
+fp16: false
 tf32: false
 
 gradient_checkpointing: true
@@ -51,7 +51,7 @@ resume_from_checkpoint:
 local_rank:
 logging_steps: 1
 xformers_attention:
-flash_attention: true
+flash_attention: false
 
 warmup_steps: 10
 evals_per_epoch: 4
@@ -62,3 +62,4 @@ weight_decay: 0.0
 fsdp:
 fsdp_config:
 special_tokens:
+low_cpu_mem_usage: true
