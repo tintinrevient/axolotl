@@ -24,3 +24,7 @@ accelerate launch -m axolotl.cli.train examples/tiny-llama/lora.yml
 
 * Hmm I can only use CPU by setting `export CUDA_VISIBLE_DEVICES=""`.
 
+## What's next?
+
+- [ ] What is the difference from https://github.com/huggingface/accelerate
+- [ ] Fine-tune a gpt2 or tiny llama
