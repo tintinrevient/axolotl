@@ -2,7 +2,7 @@
 
 ## Getting started
 
-This is the only example that can run on my Ubuntu with CPU only: https://github.com/tintinrevient/axolotl/tree/main/examples/tiny-llama.
+This is the only example that can run on my Ubuntu with GPU: https://github.com/tintinrevient/axolotl/tree/main/examples/tiny-llama.
 
 You can simly run it as below:
 
@@ -22,7 +22,7 @@ accelerate launch -m axolotl.cli.train examples/tiny-llama/lora.yml
 
 #### issue 3 on GPU: [CUDA out of memory](https://github.com/OpenAccess-AI-Collective/axolotl/issues/998)。
 
-* Hmm I can only use CPU by setting `export CUDA_VISIBLE_DEVICES=""`.
+* Hmm I can only use CPU by setting `export CUDA_VISIBLE_DEVICES=""`, but it cannot run on CPU!
 
 ## What's next?
 
